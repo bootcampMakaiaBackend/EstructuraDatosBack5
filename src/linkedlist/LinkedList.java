@@ -35,4 +35,38 @@ public class LinkedList {
         tail.next = nuevoNodo;
         tail = nuevoNodo;
     }
+
+    public void agregarPorPosicion(int posicion, int valor) {
+        if (posicion < 0) {
+            throw new IndexOutOfBoundsException();
+        } else if (posicion == 0) {
+            agregarHead(valor);
+        }else {
+            // 0      1      2       3      4
+            //[10] -> [7] -> [5] -> [5]-> [20]
+            //[nodoactual] -> [5]
+            //nodo agregar
+            Node node = new Node(valor);
+            Node actual = head;
+            for (int i= 0; i < posicion-1; i++) {
+                if(actual == null) {
+                    throw new IndexOutOfBoundsException();
+                }
+                actual = actual.next;
+            }
+            //[0] -> [3] -> [5] -> [10]
+            if(actual.next == null) {
+                agregarTail(valor);
+            } else {
+                //[0] -> [3] -> [99]->[5]  -> [10]
+                node.next = actual.next;
+                actual.next = node;
+            }
+        }
+
+        // Eliminar por posicion
+        //Buscar por el nodo dada una posicion
+        // eliminar todos los elementos
+        // Eliminar por valor
+    }
 }

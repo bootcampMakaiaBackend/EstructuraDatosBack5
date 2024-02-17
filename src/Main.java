@@ -7,5 +7,8 @@ public class Main {
         linkedList.agregarHead(7);
         linkedList.agregarHead(10);
         linkedList.agregarTail(20);
+        // 0      1      2       3
+        //[10] -> [7] -> [5] -> [20]
+        linkedList.agregarPorPosicion(3, 5);
     }
 }
